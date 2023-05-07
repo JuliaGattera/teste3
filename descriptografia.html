@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Botão</title>
+
+    <body>
+        <input type=" text " placeholder="Informe um texto" id="teste" class="textocss">
+        <button onclick="encripta()">ENCRIPTAR</button>
+        <button onclick="decripta()">DECRIPTAR</button>
+        <button onclick="copia()">COPIAR</button>
+
+        <div id="texte" class="resultado"></div>
+
+
+
+        <script>
+            function encripta() {
+                var texto = document.querySelector('.textocss').value;
+                var vetor = texto.split('');
+                var result = "";
+                for (var i = 0; i < texto.length; i++) {
+                    switch (vetor[i]) {
+                        case 'a':
+                            {
+                                vetor[i] = "ai";
+                                break;
+                            }
+                        case 'e':
+                            {
+                                vetor[i] = "enter";
+                                break;
+                            }
+                        case 'i':
+                            {
+                                vetor[i] = "imes";
+                                break;
+                            }
+                        case 'o':
+                            {
+                                vetor[i] = "ober";
+                                break;
+                            }
+                        case 'u':
+                            {
+                                vetor[i] = "ufat";
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    result = result + vetor[i];
+                }
+
+                document.querySelector('.resultado').innerHTML = result;
+
+                //alert(result);
+
+            }
+
+            function decripta() {
+                var texto = document.querySelector('.textocss').value;
+                var vetor = texto.split('');
+                var result = "";
+                for (var i = 0; i < texto.length; i++) {
+                    switch (vetor[i]) {
+                        case 'a':
+                            {
+                                if (vetor[i + 1] == 'i') {
+                                    vetor[i + 1] = vetor[i];
+                                    i++;
+                                }
+                                break;
+                            }
+                        case 'e':
+                            {
+                                if (vetor[i + 1] == 'n' && vetor[i + 2] == 't' && vetor[i + 3] == 'e' && vetor[i + 4] == 'r') {
+                                    vetor[i + 4] = vetor[i];
+                                    i = i + 4;
+                                }
+                                break;
+                            }
+                        case 'i':
+                            {
+                                if (vetor[i + 1] == 'm' && vetor[i + 2] == 'e' && vetor[i + 3] == 's') {
+                                    vetor[i + 3] = vetor[i];
+                                    i = i + 3;
+                                }
+                                break;
+                            }
+                        case 'o':
+                            {
+                                if (vetor[i + 1] == 'b' && vetor[i + 2] == 'e' && vetor[i + 3] == 'r') {
+                                    vetor[i + 3] = vetor[i];
+                                    i = i + 3;
+                                }
+                                break;
+                            }
+                        case 'u':
+                            {
+                                if (vetor[i + 1] == 'f' && vetor[i + 2] == 'a' && vetor[i + 3] == 't') {
+                                    vetor[i + 3] = vetor[i];
+                                    i = i + 3;
+                                }
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    result = result + vetor[i];
+                }
+
+                document.querySelector('.resultado').innerHTML = result;
+            }
+
+            function copia() {
+                //var texto = document.getElementById("texte");
+                var x = texte.innerText; //peguei o conteúdo de dentro da div e coloquei na var x
+                navigator.clipboard.writeText(x); //copiei para a área de transferência
+                alert("valor copiado!\n" + x);
+            }
+        </script>
+    </body>
+</head>
+
+</html>
